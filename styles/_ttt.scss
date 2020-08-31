@@ -1,188 +1,19 @@
-$blue: #233e51;
-$dark-purple: #463e50;
-$light-purple: #7f4855;
-$pink: #cc4b51;
-$orange: #df725d;
+$blue: #55acee;
+$purple: #a186be;
 $white: #f5f5f5;
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
 
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient( $orange, $pink, $light-purple, $dark-purple, $blue );
+  background: linear-gradient( $purple, $blue );
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   overflow: hidden;
-}
-
-.wrapper {
-  &:hover,
-  &:focus {
-    p span {
-      animation: smoke 1.75s ease-in forwards;
-    }
-  }
-}
-
-p {
-  opacity: 0;
-  margin: 0;
-  font-style: italic;
-  color: $white;
-  filter: blur( 0.02vmin );
-  animation: fade-in 1s ease-in-out forwards;
-  text-shadow: 0 0 2vmin $orange;
-
-  span {
-    display: inline-block; /* Need this so smoke rises */
-  }
-
-  // Dream
-  &.dream {
-    font-size: 24vmin;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    margin: -12% 0 -5%;
-    animation-delay: 1s;
-
-    span {
-      margin-left: -6%;
-
-      &:nth-child( 1 ) {
-        animation-delay: 0.6s;
-      }
-
-      &:nth-child( 2 ) {
-        animation-delay: 1s;
-      }
-
-      &:nth-child( 3 ) {
-        animation-delay: 0.8s;
-      }
-
-      &:nth-child( 4 ) {
-        animation-delay: 1.4s;
-      }
-
-      &:nth-child( 5 ) {
-        animation-delay: 1.2s;
-      }
-    }
-  }
-
-  // Dangerously
-  &.dangerously {
-    font-size: 9vmin;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    text-transform: uppercase;
-    padding-left: 21%;
-    animation-delay: 1.5s;
-
-    span {
-      margin-left: -1.5%;
-
-      &:nth-child( 1 ) {
-        animation-delay: 1.4s;
-      }
-
-      &:nth-child( 2 ) {
-        animation-delay: 1.2s;
-      }
-
-      &:nth-child( 3 ) {
-        animation-delay: 1.6s;
-      }
-
-      &:nth-child( 4 ) {
-        animation-delay: 1.8s;
-      }
-
-      &:nth-child( 5 ) {
-        animation-delay: 2s;
-      }
-
-      &:nth-child( 6 ) {
-        animation-delay: 2.4s;
-      }
-
-      &:nth-child( 7 ) {
-        animation-delay: 2.2s;
-      }
-
-      &:nth-child( 8 ) {
-        animation-delay: 2.6s;
-      }
-
-      &:nth-child( 9 ) {
-        animation-delay: 2.8s;
-      }
-
-      &:nth-child( 10 ) {
-        animation-delay: 3.2s;
-      }
-
-      &:nth-child( 11 ) {
-        animation-delay: 3s;
-      }
-    }
-  }
-}
-
-.star {
-  $baseSize: 1px;
-
-  position: absolute;
-  height: $baseSize;
-  width: $baseSize;
-  background-color: $white;
-  border-radius: 50%;
-  box-shadow: 0 0 4px 1px $white;
-  animation: twinkle 4s infinite;
-
-  &.medium {
-    height: $baseSize + 1;
-    width: $baseSize + 1;
-  }
-}
-
-// ----- Animation ----- //
-@keyframes twinkle {
-  0% {
-    opacity: .5;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: .5;
-  }
-}
-
-@keyframes smoke {
-  0% {
-    transform: rotate( 0deg ) translate3d( 0% ) skew( 0deg ) scale( 1 );
-    opacity: 1;
-    filter: blur( 0.02vmin );
-  }
-  100% {
-    transform: rotate( 15deg ) translate3d( 85%, -75%, 0 ) skew( -30deg ) scale( 2 );
-    opacity: 0;
-    filter: blur( 2.5vmin );
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translate3d( -2vmin, 2vmin, 0 );
-    filter: blur( 1vmin );
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d( 0 );
-    filter: blur( 0.02vmin );
-  }
+  font-family: 'Bungee Inline', cursive;
 }
