@@ -54,3 +54,7 @@ button {
   width: var(--cell-size);
   height: var(--cell-size);
 }
+
+.cell::before, .cell::after {
+  content: ';';
+}

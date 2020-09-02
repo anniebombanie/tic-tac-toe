@@ -47,4 +47,17 @@ button {
   background-color: $white;
   width: var( --cell-size );
   height: var( --cell-size );
+
+  &::before,
+  &::after {
+    content: ';'
+  }
+
+  &::before {
+
+  }
+
+  &::after {
+
+  }
 }
