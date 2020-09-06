@@ -4,7 +4,14 @@ $white: #f5f5f5;
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
 
-//Box sizing
+/* --- Universal Box Sizing with Inheritance --- */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 :root {
   --cell-size: 100px;
@@ -47,17 +54,18 @@ button {
   background-color: $white;
   width: var( --cell-size );
   height: var( --cell-size );
+  position: relative;
 
-  &::before,
-  &::after {
-    content: ';'
+  &.dragon,
+  &.unicorn {
+    position: absolute;
   }
 
-  &::before {
+  // &.dragon {
 
-  }
+  // }
 
-  &::after {
+  // &.unicorn {
 
-  }
+  // }
 }
