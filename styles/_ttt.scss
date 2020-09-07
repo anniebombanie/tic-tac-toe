@@ -1,9 +1,3 @@
-$blue: #55acee;
-$purple: #a186be;
-$white: #f5f5f5;
-
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
-
 /* --- Universal Box Sizing with Inheritance --- */
 html {
   box-sizing: border-box;
@@ -15,6 +9,27 @@ html {
 
 :root {
   --cell-size: 100px;
+}
+
+$blue: #55acee;
+$purple: #a186be;
+$white: #f5f5f5;
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+@mixin pseduo-div( $w, $h ) {
+  content: '';
+  width: $w;
+  height: $h;
+  display: block;
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+@mixin align-center() {
+  top: 50%;
+  left: 50%;
+  transform: translate3d( -50%, -50%, 0 );
 }
 
 /* --- Styles --- */
@@ -30,6 +45,23 @@ body {
   overflow: hidden;
   font-family: 'Bungee Inline', cursive;
   color: $white;
+}
+
+h1 {
+  position: relative;
+
+  &::before,
+  &::after {
+    @include pseduo-div( 85%, 85% );
+  }
+
+  &::before {
+    background-image: url( '../img/fire.png' );
+  }
+
+  &::after {
+    background-image: url( '../img/stars.png' );
+  }
 }
 
 .status-reset-container {
@@ -49,22 +81,46 @@ button {
   grid-gap: 15px;
   width: 100%;
   height: 100%;
+
+  &.unicorn,
+  &.dragon {
+    .cell:not( .dragon ):not( .unicorn ):hover::before {
+      @include pseduo-div( 85%, 85% );
+      @include align-center();
+      background-size: contain;
+      opacity: 50%;
+    }
+  }
+
+  &.unicorn {
+    .cell:hover::before {
+      background-image: url( '../img/unicorn.png' );
+    }
+  }
+
+  &.dragon {
+    .cell:hover::before {
+      background-image: url( '../img/dragon.png' );
+    }
+  }
 }
 
 .cell {
   background-color: $white;
   width: var( --cell-size );
   height: var( --cell-size );
+  cursor: pointer;
+  position: relative;
 
   &.dragon,
   &.unicorn {
     position: relative;
+    cursor: not-allowed;
 
     &::before {
-      position: absolute;
-      content: '';
-      height: 100%;
-      width: 100%;
+      @include pseduo-div( 85%, 85% );
+      @include align-center();
+      background-size: contain;
     }
   }
 
