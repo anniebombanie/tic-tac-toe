@@ -11,7 +11,7 @@ html {
 }
 
 :root {
-  --cell-size: 100px;
+  --cell-size: 150px;
 }
 
 /* --- Styles --- */
@@ -42,8 +42,8 @@ h1 {
 
 h1::before, h1::after {
   content: '';
-  width: 85%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   display: block;
   position: absolute;
   background-repeat: no-repeat;
@@ -51,10 +51,12 @@ h1::before, h1::after {
 
 h1::before {
   background-image: url("../img/fire.png");
+  left: 0;
 }
 
 h1::after {
   background-image: url("../img/stars.png");
+  right: 0;
 }
 
 .status-reset-container {
@@ -63,11 +65,16 @@ h1::after {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 20px 0;
 }
 
-button {
-  cursor: pointer;
+.current-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .board {
@@ -84,8 +91,8 @@ button {
 
 .board.unicorn .cell:not(.dragon):not(.unicorn):hover::before, .board.dragon .cell:not(.dragon):not(.unicorn):hover::before {
   content: '';
-  width: 85%;
-  height: 85%;
+  width: 70%;
+  height: 70%;
   display: block;
   position: absolute;
   background-repeat: no-repeat;
@@ -120,8 +127,8 @@ button {
 
 .cell.dragon::before, .cell.unicorn::before {
   content: '';
-  width: 85%;
-  height: 85%;
+  width: 70%;
+  height: 70%;
   display: block;
   position: absolute;
   background-repeat: no-repeat;
@@ -138,4 +145,50 @@ button {
 
 .cell.unicorn::before {
   background-image: url("../img/unicorn.png");
+}
+
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+}
+
+.winning-message.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.reset-button {
+  color: #f5f5f5;
+  font-family: 'Bungee Inline', cursive;
+  border: none;
+  padding: 10px 20px;
+  background-color: #a186be;
+  -webkit-box-shadow: 5px 5px 0 #55acee;
+          box-shadow: 5px 5px 0 #55acee;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+}
+
+.reset-button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }

@@ -8,7 +8,7 @@ html {
 }
 
 :root {
-  --cell-size: 100px;
+  --cell-size: 150px;
 }
 
 $blue: #55acee;
@@ -52,27 +52,31 @@ h1 {
 
   &::before,
   &::after {
-    @include pseduo-div( 85%, 85% );
+    @include pseduo-div( 100%, 100% );
   }
 
   &::before {
     background-image: url( '../img/fire.png' );
+    left: 0;
   }
 
   &::after {
     background-image: url( '../img/stars.png' );
+    right: 0;
   }
 }
 
 .status-reset-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin: 20px 0;
 }
 
-button {
-  cursor: pointer;
+.current-status {
+  display: flex;
 }
+
 
 .board {
   display: grid;
@@ -85,7 +89,7 @@ button {
   &.unicorn,
   &.dragon {
     .cell:not( .dragon ):not( .unicorn ):hover::before {
-      @include pseduo-div( 85%, 85% );
+      @include pseduo-div( 70%, 70% );
       @include align-center();
       background-size: contain;
       opacity: 50%;
@@ -118,7 +122,7 @@ button {
     cursor: not-allowed;
 
     &::before {
-      @include pseduo-div( 85%, 85% );
+      @include pseduo-div( 70%, 70% );
       @include align-center();
       background-size: contain;
     }
@@ -130,5 +134,37 @@ button {
 
   &.unicorn::before {
     background-image: url( '../img/unicorn.png' );
+  }
+}
+
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+
+  &.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.reset-button {
+  color: $white;
+  font-family: 'Bungee Inline', cursive;
+  border: none;
+  padding: 10px 20px;
+  background-color: $purple;
+  box-shadow: 5px 5px 0 $blue;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale( 1.2 );
   }
 }
