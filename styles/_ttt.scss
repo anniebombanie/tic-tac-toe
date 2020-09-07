@@ -17,6 +17,7 @@ html {
   --cell-size: 100px;
 }
 
+/* --- Styles --- */
 body {
   margin: 0;
   padding: 0;
@@ -54,18 +55,24 @@ button {
   background-color: $white;
   width: var( --cell-size );
   height: var( --cell-size );
-  position: relative;
 
   &.dragon,
   &.unicorn {
-    position: absolute;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 100%;
+    }
   }
 
-  // &.dragon {
+  &.dragon::before {
+    background-image: url( '../img/dragon.png' );
+  }
 
-  // }
-
-  // &.unicorn {
-
-  // }
+  &.unicorn::before {
+    background-image: url( '../img/unicorn.png' );
+  }
 }
