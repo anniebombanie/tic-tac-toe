@@ -18,8 +18,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#a186be), to(#55acee));
-  background: linear-gradient(#a186be, #55acee);
+  background-image: url("../img/fantasy-bg.jpg");
+  background-size: cover;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;

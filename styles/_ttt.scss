@@ -36,7 +36,8 @@ $white: #f5f5f5;
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient( $purple, $blue );
+  background-image: url( '../img/fantasy-bg.jpg' );
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
