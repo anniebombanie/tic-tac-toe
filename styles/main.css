@@ -97,11 +97,11 @@ button {
   opacity: 50%;
 }
 
-.board.unicorn .cell:hover::before {
+.board.unicorn .cell:not(.dragon):hover::before {
   background-image: url("../img/unicorn.png");
 }
 
-.board.dragon .cell:hover::before {
+.board.dragon .cell:not(.unicorn):hover::before {
   background-image: url("../img/dragon.png");
 }
 

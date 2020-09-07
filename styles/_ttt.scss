@@ -93,13 +93,13 @@ button {
   }
 
   &.unicorn {
-    .cell:hover::before {
+    .cell:not( .dragon ):hover::before {
       background-image: url( '../img/unicorn.png' );
     }
   }
 
   &.dragon {
-    .cell:hover::before {
+    .cell:not( .unicorn ):hover::before {
       background-image: url( '../img/dragon.png' );
     }
   }
