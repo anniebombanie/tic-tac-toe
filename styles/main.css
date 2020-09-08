@@ -73,7 +73,7 @@ h1::after {
 }
 
 .current-status p {
-  margin: 0 0 0 10px;
+  margin: 0;
 }
 
 .current-status img {
