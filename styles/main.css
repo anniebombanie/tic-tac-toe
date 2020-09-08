@@ -151,7 +151,7 @@ h1::after {
   background-image: url("../img/unicorn.png");
 }
 
-.winning-message {
+.game-end-overlay {
   display: none;
   position: fixed;
   top: 0;
@@ -161,7 +161,7 @@ h1::after {
   background-color: black;
 }
 
-.winning-message.show {
+.game-end-overlay.show {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

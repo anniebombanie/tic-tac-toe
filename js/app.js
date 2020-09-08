@@ -1,8 +1,10 @@
 // -- HTML elements --
 const board = document.querySelector( '#board' );
-const currentStatus = document.querySelector( '#currentStatus' );
-const resetButton = document.querySelector( '#resetButton' );
 const cells = document.querySelectorAll( '[data-cell]' );
+const currentStatus = document.querySelector( '#currentStatus' );
+const winningMessageText = document.querySelector( '[data-winning-message-text]' );
+const resetButton = document.querySelector( '#resetButton' );
+const gameEndOverlay = document.querySelector( '#gameEndOverlay' );
 
 // -- Game Variables --
 let gameIsLive = true;
@@ -20,37 +22,6 @@ const winningCombinations = [
 ];
 
 // -- Functions --
-// const checkGameStatus = () => {
-//   const topLeft = cells[0].classList[2];
-//   const topMiddle = cells[1].classList[2];
-//   const topRight = cells[2].classList[2];
-//   const middleLeft = cells[3].classList[2];
-//   const middleMiddle = cells[4].classList[2];
-//   const middleRight= cells[5].classList[2];
-//   const bottomLeft = cells[6].classList[2];
-//   const bottomMiddle = cells[7].classList[2];
-//   const bottomRight = cells[8].classList[2];
-
-//   // Check for winner
-//   gameIsLive = false;
-// }
-
-const startGame = () => {
-  cells.forEach( cell => {
-    cell.addEventListener( 'click', handleCellClick, { once: true });
-  });
-
-  setBoardHoverClass();
-}
-
-const placeBeast = ( cell, currentBeast ) => {
-  cell.classList.add( currentBeast );
-}
-
-const swapTurns = () => {
-  unicornIsNext = !unicornIsNext;
-}
-
 const setBoardHoverClass = () => {
   board.classList.remove( 'unicorn' );
   board.classList.remove( 'dragon' );
@@ -62,6 +33,50 @@ const setBoardHoverClass = () => {
   }
 }
 
+const placeBeastImg = ( cell, currentBeast ) => {
+  cell.classList.add( currentBeast );
+}
+
+const swapTurns = () => {
+  unicornIsNext = !unicornIsNext;
+}
+
+const checkWin = ( currentBeast ) => {
+  return winningCombinations.some( combination => {
+    return combination.every( i => {
+      return cells[i].classList.contains( currentBeast );
+    })
+  });
+}
+
+const isDraw = () => {
+  return [...cells].every( cell => {
+    return cell.classList.contains( 'unicorn' ) || cell.classList.contains( 'dragon' );
+  })
+}
+
+const startGame = () => {
+  cells.forEach( cell => {
+    cell.classList.remove( 'unicorn' );
+    cell.classList.remove( 'dragon' );
+    cell.removeEventListener( 'click', handleCellClick );
+    cell.addEventListener( 'click', handleCellClick, { once: true });
+  });
+
+  setBoardHoverClass();
+
+  gameEndOverlay.classList.remove( 'show' );
+}
+
+const endGame = ( draw ) => {
+  if ( draw ) {
+    winningMessageText.innerText = `Draw!`;
+  } else {
+    winningMessageText.innerText = `${ unicornIsNext ? 'Unicorn' : 'Dragon' } reigns supreme!!!`
+  }
+
+  gameEndOverlay.classList.add( 'show' );
+}
 
 // -- Event Handlers --
 const handleReset = ( e ) => {
@@ -72,17 +87,20 @@ const handleCellClick = ( e ) => {
   const cell = e.target;
   const currentBeast = unicornIsNext ? 'unicorn' : 'dragon';
 
-  // Place mark
-  placeBeast( cell, currentBeast );
+  placeBeastImg( cell, currentBeast );
 
-  // Check for win
-  // Check for draw
-  // Switch turns
-  swapTurns();
-  setBoardHoverClass();
+  if ( checkWin( currentBeast )) {
+    endGame( false );
+  } else if ( isDraw()) {
+    endGame( true );
+  } else {
+    swapTurns();
+    setBoardHoverClass();
+  }
 }
 
 // -- Event Listeners --
-resetButton.addEventListener( 'click', handleReset );
+resetButton.addEventListener( 'click', startGame );
 
+// -- Start Game --
 startGame();
