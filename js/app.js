@@ -1,10 +1,10 @@
 // -- HTML elements --
-const board = document.querySelector( '#board' );
+const board = document.getElementById( 'board' );
 const cells = document.querySelectorAll( '[data-cell]' );
-const currentStatus = document.querySelector( '#currentStatus' );
+const currentStatus = document.getElementById( 'currentStatus' );
 const winningMessageText = document.querySelector( '[data-winning-message-text]' );
-const resetButton = document.querySelector( '#resetButton' );
-const gameEndOverlay = document.querySelector( '#gameEndOverlay' );
+const resetButton = document.getElementById( 'resetButton' );
+const gameEndOverlay = document.getElementById( 'gameEndOverlay' );
 
 // -- Game Variables --
 let gameIsLive = true;
