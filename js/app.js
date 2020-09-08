@@ -8,7 +8,7 @@ const gameEndOverlay = document.querySelector( '#gameEndOverlay' );
 
 // -- Game Variables --
 let gameIsLive = true;
-let unicornIsNext = true;
+let unicornTurn = true;
 let winner = null;
 const winningCombinations = [
   [0, 1, 2],
@@ -26,7 +26,7 @@ const setBoardHoverClass = () => {
   board.classList.remove( 'unicorn' );
   board.classList.remove( 'dragon' );
 
-  if ( unicornIsNext ) {
+  if ( unicornTurn ) {
     board.classList.add( 'unicorn' );
   } else {
     board.classList.add( 'dragon' );
@@ -38,7 +38,7 @@ const placeBeastImg = ( cell, currentBeast ) => {
 }
 
 const swapTurns = () => {
-  unicornIsNext = !unicornIsNext;
+  unicornTurn = !unicornTurn;
 }
 
 const checkWin = ( currentBeast ) => {
@@ -64,7 +64,6 @@ const startGame = () => {
   });
 
   setBoardHoverClass();
-
   gameEndOverlay.classList.remove( 'show' );
 }
 
@@ -72,23 +71,18 @@ const endGame = ( draw ) => {
   if ( draw ) {
     winningMessageText.innerText = `Draw!`;
   } else {
-    winningMessageText.innerText = `${ unicornIsNext ? 'Unicorn' : 'Dragon' } reigns supreme!!!`
+    winningMessageText.innerText = `${ unicornTurn ? 'Unicorn' : 'Dragon' } reigns supreme!!!`
   }
 
   gameEndOverlay.classList.add( 'show' );
 }
 
-// -- Event Handlers --
-const handleReset = ( e ) => {
-  console.log( e );
-}
-
+// -- Event Handler --
 const handleCellClick = ( e ) => {
   const cell = e.target;
-  const currentBeast = unicornIsNext ? 'unicorn' : 'dragon';
+  const currentBeast = unicornTurn ? 'unicorn' : 'dragon';
 
   placeBeastImg( cell, currentBeast );
-
   if ( checkWin( currentBeast )) {
     endGame( false );
   } else if ( isDraw()) {
@@ -99,7 +93,7 @@ const handleCellClick = ( e ) => {
   }
 }
 
-// -- Event Listeners --
+// -- Event Listener --
 resetButton.addEventListener( 'click', startGame );
 
 // -- Start Game --
