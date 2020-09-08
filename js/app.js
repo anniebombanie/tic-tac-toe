@@ -5,6 +5,7 @@ const currentStatus = document.getElementById( 'currentStatus' );
 const winningMessageText = document.querySelector( '[data-winning-message-text]' );
 const resetButton = document.getElementById( 'resetButton' );
 const gameEndOverlay = document.getElementById( 'gameEndOverlay' );
+const currentBeastStatusImg = document.getElementById( 'currentBeastImg' );
 
 // -- Game Variables --
 let gameIsLive = true;
@@ -39,6 +40,16 @@ const placeBeastImg = ( cell, currentBeast ) => {
 
 const swapTurns = () => {
   unicornTurn = !unicornTurn;
+}
+
+const updateCurrentStatus = () => {
+  if ( unicornTurn ) {
+    currentBeastStatusImg.src = './img/unicorn.png';
+    currentBeastStatusImg.alt = 'unicorn';
+  } else {
+    currentBeastStatusImg.src = './img/dragon.png';
+    currentBeastStatusImg.alt = 'dragon';
+  }
 }
 
 const checkWin = ( currentBeast ) => {
@@ -89,6 +100,7 @@ const handleCellClick = ( e ) => {
     endGame( true );
   } else {
     swapTurns();
+    updateCurrentStatus();
     setBoardHoverClass();
   }
 }

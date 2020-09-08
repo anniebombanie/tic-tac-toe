@@ -11,7 +11,8 @@ html {
 }
 
 :root {
-  --cell-size: 150px;
+  --cell-size: 90px;
+  --h1-font-size: 40px;
 }
 
 /* --- Styles --- */
@@ -38,6 +39,11 @@ body {
 
 h1 {
   position: relative;
+  max-width: 100%;
+  margin: 0 auto 5%;
+  text-align: center;
+  font-size: var(--h1-font-size);
+  text-shadow: 3px 3px #55acee;
 }
 
 h1::before, h1::after {
@@ -59,6 +65,11 @@ h1::after {
   right: 0;
 }
 
+h1 span {
+  display: block;
+  font-size: 30px;
+}
+
 .current-status {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -73,7 +84,7 @@ h1::after {
 }
 
 .current-status p {
-  margin: 0;
+  margin: 0 5px 0 0;
 }
 
 .current-status img {
@@ -88,7 +99,7 @@ h1::after {
       grid-template-columns: repeat(3, auto);
   -ms-grid-rows: (auto)[3];
       grid-template-rows: repeat(3, auto);
-  grid-gap: 15px;
+  grid-gap: 12px;
   width: 100%;
   height: 100%;
 }
