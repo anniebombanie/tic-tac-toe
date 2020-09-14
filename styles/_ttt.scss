@@ -8,8 +8,8 @@ html {
 }
 
 :root {
-  --cell-size: 90px;
-  --h1-font-size: 40px;
+  // --cell-size: 90px;
+  --h1-font-size: 32px;
 }
 
 $blue: #55acee;
@@ -53,29 +53,36 @@ h1 {
   position: relative;
   max-width: 100%;
   // width: 50%;
-  margin: 0 auto 5%;
+  margin: 0 auto 7%;
   text-align: center;
   font-size: var( --h1-font-size );
   text-shadow: 3px 3px $blue;
 
   &::before,
   &::after {
-    @include pseduo-div( 100%, 100% );
+    @include pseduo-div( null, null );
+    background-size: 100%;
+    top: 50%;
+    transform: translateY( -50% );
   }
 
   &::before {
     background-image: url( '../img/fire.png' );
     left: 0;
+    width: calc( 93px / 2.1 ) ;
+    height: calc( 96px / 2.1 );
   }
 
   &::after {
     background-image: url( '../img/stars.png' );
     right: 0;
+    width: calc( 91px / 2 );
+    height: calc( 88px / 2 );
   }
 
   span {
     display: block;
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
@@ -101,11 +108,10 @@ p {
   }
 }
 
-
 .board {
   display: grid;
-  grid-template-columns: repeat( 3, auto );
-  grid-template-rows: repeat( 3, auto );
+  grid-template-columns: repeat( 3, minmax( 90px, 1fr ));
+  grid-template-rows: repeat( 3, minmax( 90px, 1fr ));
   grid-gap: 12px;
   width: 100%;
   height: 100%;
@@ -135,8 +141,8 @@ p {
 
 .cell {
   background-color: $white;
-  width: var( --cell-size );
-  height: var( --cell-size );
+  // width: var( --cell-size );
+  // height: var( --cell-size );
   cursor: pointer;
   position: relative;
   opacity: 0.5;
