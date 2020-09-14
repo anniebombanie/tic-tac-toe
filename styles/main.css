@@ -70,6 +70,11 @@ h1 span {
   font-size: 30px;
 }
 
+h1,
+p {
+  letter-spacing: 1px;
+}
+
 .current-status {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,6 +90,7 @@ h1 span {
 
 .current-status p {
   margin: 0 5px 0 0;
+  font-size: 24px;
 }
 
 .current-status img {
@@ -133,6 +139,13 @@ h1 span {
   height: var(--cell-size);
   cursor: pointer;
   position: relative;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cell:hover {
+  opacity: 1;
 }
 
 .cell.dragon, .cell.unicorn {
