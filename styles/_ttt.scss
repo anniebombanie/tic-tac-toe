@@ -146,7 +146,7 @@ p {
   cursor: pointer;
   position: relative;
   opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 
   &:hover {
     opacity: 1;
@@ -155,6 +155,7 @@ p {
   &.dragon,
   &.unicorn {
     position: relative;
+    opacity: 1;
     cursor: not-allowed;
 
     &::before {
@@ -190,17 +191,30 @@ p {
   }
 }
 
+.btn-container {
+  position: relative;
+}
+
 .reset-button {
   color: $white;
   font-family: 'Bungee Inline', cursive;
+  font-size: 30px;
+  white-space: nowrap;
   border: none;
   padding: 10px 20px;
   background-color: $purple;
   box-shadow: 5px 5px 0 $blue;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
+  position: relative;
 
   &:hover {
     transform: scale( 1.2 );
+  }
+
+  &:active {
+    top: 6px;
+    box-shadow: 5px 0 0 darken( $blue, 5 );
+    background-color: darken( $purple, 5 );
   }
 }
