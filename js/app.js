@@ -2,12 +2,12 @@
 const board = document.getElementById( 'board' );
 const cells = document.querySelectorAll( '[data-cell]' );
 const currentStatus = document.getElementById( 'currentStatus' );
-const winningMessage = document.querySelector( '[data-winning-message]' );
-const winningMessageText = document.createElement( 'p' );
-const winningMessageImg = document.createElement( 'img' );
 const resetButton = document.getElementById( 'resetButton' );
 const gameEndOverlay = document.getElementById( 'gameEndOverlay' );
 const currentBeastStatusImg = document.getElementById( 'currentBeastImg' );
+const winningMessage = document.querySelector( '[data-winning-message]' );
+const winningMessageText = document.querySelector( '[data-winning-message] p' );
+const winningMessageImg = document.createElement( 'img' );
 
 // -- Game Variables --
 let gameIsLive = true;
@@ -70,12 +70,11 @@ const isDraw = () => {
 
 const startGame = () => {
   cells.forEach( cell => {
+    winningMessageImg.remove();
     cell.classList.remove( 'unicorn' );
     cell.classList.remove( 'dragon' );
     cell.removeEventListener( 'click', handleCellClick );
     cell.addEventListener( 'click', handleCellClick, { once: true });
-    winningMessageText.remove();
-    winningMessageImg.remove();
   });
 
   setBoardHoverClass();
@@ -84,10 +83,8 @@ const startGame = () => {
 
 const endGame = ( draw ) => {
   if ( draw ) {
-    winningMessage.appendChild( winningMessageText );
     winningMessageText.innerText = `draw!`;
   } else {
-    winningMessage.appendChild( winningMessageText );
     winningMessageImg.src = unicornTurn ? './img/unicorn.png' : './img/dragon.png';
     winningMessageImg.alt = unicornTurn ? 'unicorn' : 'dragon';
     winningMessage.insertBefore( winningMessageImg, winningMessageText );
