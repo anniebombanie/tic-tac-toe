@@ -111,7 +111,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
   p {
     margin: 0 5px 0 0;
@@ -207,6 +207,10 @@ p {
   }
 }
 
+.winning-message-text {
+  display: flex;
+}
+
 .btn-container {
   position: relative;
 }
@@ -230,7 +234,8 @@ p {
 
   &:active {
     top: 6px;
-    box-shadow: 5px 0 0 darken( $blue, 5 );
+    left: 6px;
+    box-shadow: none;
     background-color: darken( $purple, 5 );
   }
 }

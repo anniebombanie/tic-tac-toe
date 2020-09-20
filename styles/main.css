@@ -100,7 +100,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .current-status p {
@@ -217,6 +217,12 @@ p {
           align-items: center;
 }
 
+.winning-message-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .btn-container {
   position: relative;
 }
@@ -246,7 +252,8 @@ p {
 
 .reset-button:active {
   top: 6px;
-  -webkit-box-shadow: 5px 0 0 #3ea1ec;
-          box-shadow: 5px 0 0 #3ea1ec;
+  left: 6px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background-color: #9475b5;
 }
