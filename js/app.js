@@ -2,8 +2,9 @@
 const board = document.getElementById( 'board' );
 const cells = document.querySelectorAll( '[data-cell]' );
 const currentStatus = document.getElementById( 'currentStatus' );
-const winningMessageImg = document.querySelector( '[data-winning-message] img' );
-const winningMessageText = document.querySelector( '[data-winning-message] p' );
+const winningMessage = document.querySelector( '[data-winning-message]' );
+const winningMessageText = document.createElement( 'p' );
+const winningMessageImg = document.createElement( 'img' );
 const resetButton = document.getElementById( 'resetButton' );
 const gameEndOverlay = document.getElementById( 'gameEndOverlay' );
 const currentBeastStatusImg = document.getElementById( 'currentBeastImg' );
@@ -80,11 +81,14 @@ const startGame = () => {
 }
 
 const endGame = ( draw ) => {
+  winningMessage.appendChild( winningMessageText );
+
   if ( draw ) {
     winningMessageText.innerText = `draw!`;
   } else {
     winningMessageImg.src = unicornTurn ? './img/unicorn.png' : './img/dragon.png';
     winningMessageImg.alt = unicornTurn ? 'unicorn' : 'dragon';
+    winningMessage.insertBefore( winningMessageImg, winningMessageText );
     winningMessageText.innerText = `wins!!!`
   }
 

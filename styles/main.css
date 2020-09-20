@@ -198,7 +198,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: black;
+  background-color: #0d1021;
 }
 
 .game-end-overlay.show {
