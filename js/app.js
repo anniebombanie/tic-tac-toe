@@ -9,7 +9,7 @@ const currentBeastStatusImg = document.getElementById( 'currentBeastImg' );
 
 // -- Game Variables --
 let gameIsLive = true;
-let unicornTurn = true;
+let unicornTurn = Math.random() >= 0.5; // randomise who starts first
 let winner = null;
 const winningCombinations = [
   [0, 1, 2],
