@@ -45,7 +45,7 @@ $white: #f5f5f5;
 @include mq( tablet ) {
   :root {
     --cell-size: 155px;
-    --grid-gap: 25px;
+    --grid-gap: 15px;
     --h1-font-size: 40px;
   }
 }
