@@ -83,8 +83,8 @@ const endGame = ( draw ) => {
   if ( draw ) {
     winningMessageText.innerText = `draw!`;
   } else {
-    winningMessageImg.src = `${ unicornTurn ? './img/unicorn.png' : './img/dragon.png' }`;
-    winningMessageImg.alt = `${ unicornTurn ? 'unicorn' : 'dragon' }`;
+    winningMessageImg.src = unicornTurn ? './img/unicorn.png' : './img/dragon.png';
+    winningMessageImg.alt = unicornTurn ? 'unicorn' : 'dragon';
     winningMessageText.innerText = `wins!!!`
   }
 

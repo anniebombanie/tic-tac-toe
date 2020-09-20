@@ -217,10 +217,17 @@ p {
           align-items: center;
 }
 
-.winning-message-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.winning-message {
+  margin-bottom: 10px;
+}
+
+.winning-message img {
+  width: 100px;
+}
+
+.winning-message p {
+  font-size: 48px;
+  margin: 0;
 }
 
 .btn-container {

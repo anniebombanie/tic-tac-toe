@@ -207,8 +207,17 @@ p {
   }
 }
 
-.winning-message-text {
-  display: flex;
+.winning-message {
+  margin-bottom: 10px;
+
+  img {
+    width: 100px;
+  }
+
+  p {
+    font-size: 48px;
+    margin: 0;
+  }
 }
 
 .btn-container {
