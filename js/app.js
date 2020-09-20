@@ -74,6 +74,8 @@ const startGame = () => {
     cell.classList.remove( 'dragon' );
     cell.removeEventListener( 'click', handleCellClick );
     cell.addEventListener( 'click', handleCellClick, { once: true });
+    winningMessageText.remove();
+    winningMessageImg.remove();
   });
 
   setBoardHoverClass();
@@ -81,11 +83,11 @@ const startGame = () => {
 }
 
 const endGame = ( draw ) => {
-  winningMessage.appendChild( winningMessageText );
-
   if ( draw ) {
+    winningMessage.appendChild( winningMessageText );
     winningMessageText.innerText = `draw!`;
   } else {
+    winningMessage.appendChild( winningMessageText );
     winningMessageImg.src = unicornTurn ? './img/unicorn.png' : './img/dragon.png';
     winningMessageImg.alt = unicornTurn ? 'unicorn' : 'dragon';
     winningMessage.insertBefore( winningMessageImg, winningMessageText );
