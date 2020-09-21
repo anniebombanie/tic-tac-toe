@@ -14,13 +14,30 @@ html {
   --cell-size: 90px;
   --grid-gap: 12px;
   --h1-font-size: 32px;
+  --h1-span-font-size: 24px;
+  --current-status-font-size: 24px;
+  --current-beast-img-height: 32px;
 }
 
 @media (min-width: 600px) {
   :root {
     --cell-size: 155px;
     --grid-gap: 15px;
-    --h1-font-size: 40px;
+    --h1-font-size: 56px;
+    --h1-span-font-size: 40px;
+    --current-status-font-size: 36px;
+    --current-beast-img-height: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --cell-size: 155px;
+    --grid-gap: 15px;
+    --h1-font-size: 64px;
+    --h1-span-font-size: 48px;
+    --current-status-font-size: 36px;
+    --current-beast-img-height: 45px;
   }
 }
 
@@ -49,7 +66,7 @@ body {
 h1 {
   position: relative;
   max-width: 100%;
-  margin: 0 auto 7%;
+  margin: 0 auto 10%;
   text-align: center;
   font-size: var(--h1-font-size);
   text-shadow: 3px 3px #55acee;
@@ -73,6 +90,12 @@ h1::before {
   height: calc( 96px / 2.1);
 }
 
+@media (min-width: 1024px) {
+  h1::before {
+    left: -64px;
+  }
+}
+
 h1::after {
   background-image: url("../img/stars.png");
   right: 0;
@@ -80,9 +103,21 @@ h1::after {
   height: calc( 88px / 2);
 }
 
+@media (min-width: 1024px) {
+  h1::after {
+    right: -64px;
+  }
+}
+
 h1 span {
   display: block;
-  font-size: 20px;
+  font-size: var(--h1-span-font-size);
+}
+
+@media (min-width: 1024px) {
+  h1 span {
+    display: inline;
+  }
 }
 
 h1,
@@ -105,12 +140,12 @@ p {
 
 .current-status p {
   margin: 0 5px 0 0;
-  font-size: 24px;
+  font-size: var(--current-status-font-size);
 }
 
 .current-status img {
   width: auto;
-  height: 25px;
+  height: var(--current-beast-img-height);
 }
 
 .board {

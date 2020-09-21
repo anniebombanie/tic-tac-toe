@@ -16,6 +16,9 @@ $navy: #0d1021;
   --cell-size: 90px;
   --grid-gap: 12px;
   --h1-font-size: 32px;
+  --h1-span-font-size: 24px;
+  --current-status-font-size: 24px;
+  --current-beast-img-height: 32px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
@@ -47,7 +50,21 @@ $navy: #0d1021;
   :root {
     --cell-size: 155px;
     --grid-gap: 15px;
-    --h1-font-size: 40px;
+    --h1-font-size: 56px;
+    --h1-span-font-size: 40px;
+    --current-status-font-size: 36px;
+    --current-beast-img-height: 45px;
+  }
+}
+
+@include mq( desktop ) {
+  :root {
+    --cell-size: 155px;
+    --grid-gap: 15px;
+    --h1-font-size: 64px;
+    --h1-span-font-size: 48px;
+    --current-status-font-size: 36px;
+    --current-beast-img-height: 45px;
   }
 }
 
@@ -70,7 +87,7 @@ body {
 h1 {
   position: relative;
   max-width: 100%;
-  margin: 0 auto 7%;
+  margin: 0 auto 10%;
   text-align: center;
   font-size: var( --h1-font-size );
   text-shadow: 3px 3px $blue;
@@ -88,6 +105,10 @@ h1 {
     left: 0;
     width: calc( 93px / 2.1 ) ;
     height: calc( 96px / 2.1 );
+
+    @include mq( desktop ) {
+      left: -64px;
+    }
   }
 
   &::after {
@@ -95,11 +116,19 @@ h1 {
     right: 0;
     width: calc( 91px / 2 );
     height: calc( 88px / 2 );
+
+    @include mq( desktop ) {
+      right: -64px;
+    }
   }
 
   span {
     display: block;
-    font-size: 20px;
+    font-size: var( --h1-span-font-size );
+
+    @include mq( desktop ) {
+      display: inline;
+    }
   }
 }
 
@@ -116,12 +145,12 @@ p {
 
   p {
     margin: 0 5px 0 0;
-    font-size: 24px;
+    font-size: var( --current-status-font-size );
   }
 
   img {
     width: auto;
-    height: 25px;
+    height: var( --current-beast-img-height );
   }
 }
 
