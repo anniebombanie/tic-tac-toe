@@ -19,6 +19,9 @@ $navy: #0d1021;
   --h1-span-font-size: 24px;
   --current-status-font-size: 24px;
   --current-beast-img-height: 32px;
+  --winning-beast-img-width: 100px;
+  --winning-msg-font-size: 48px;
+  --reset-btn-font-size: 30px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
@@ -61,6 +64,9 @@ $navy: #0d1021;
   :root {
     --h1-font-size: 64px;
     --h1-span-font-size: 48px;
+    --winning-msg-font-size: 72px;
+    --reset-btn-font-size: 48px;
+    --winning-beast-img-width: 150px;
   }
 }
 
@@ -192,7 +198,7 @@ p {
   background-color: $white;
   width: var( --cell-size );
   height: var( --cell-size );
-  opacity: 0.7;
+  opacity: 0.5;
   transition: opacity 0.2s ease-in-out;
 
   &:hover {
@@ -242,11 +248,11 @@ p {
   margin: -50px 0 20px;
 
   img {
-    width: 100px;
+    width: var( --winning-beast-img-width );
   }
 
   p {
-    font-size: 48px;
+    font-size: var( --winning-msg-font-size );
     margin: 0;
   }
 }
@@ -258,7 +264,7 @@ p {
 .reset-button {
   color: $white;
   font-family: 'Bungee Inline', cursive;
-  font-size: 30px;
+  font-size: var( --reset-btn-font-size );
   white-space: nowrap;
   border: none;
   padding: 10px 20px;
