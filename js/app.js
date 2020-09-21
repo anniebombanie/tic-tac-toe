@@ -11,7 +11,7 @@ const winningMessageImg = document.createElement( 'img' );
 
 // -- Game Variables --
 let gameIsLive = true;
-let unicornTurn = Math.random() >= 0.5; // randomise who starts first
+let unicornTurn = Math.random() >= 0.5;
 let winner = null;
 const winningCombinations = [
   [0, 1, 2],
