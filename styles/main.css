@@ -166,7 +166,7 @@ p {
   width: 100%;
   height: 100%;
   max-width: 495px;
-  margin: 0 auto 10px;
+  margin: 0 auto 15px;
 }
 
 .board.unicorn .cell:not(.dragon):not(.unicorn):hover::before, .board.dragon .cell:not(.dragon):not(.unicorn):hover::before {
