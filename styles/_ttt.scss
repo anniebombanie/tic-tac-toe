@@ -59,12 +59,8 @@ $navy: #0d1021;
 
 @include mq( desktop ) {
   :root {
-    --cell-size: 155px;
-    --grid-gap: 15px;
     --h1-font-size: 64px;
     --h1-span-font-size: 48px;
-    --current-status-font-size: 36px;
-    --current-beast-img-height: 45px;
   }
 }
 
@@ -79,7 +75,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
   font-family: 'Bungee Inline', cursive;
   color: $white;
 }
@@ -87,7 +82,7 @@ body {
 h1 {
   position: relative;
   max-width: 100%;
-  margin: 0 auto 10%;
+  margin: 0 auto 7%;
   text-align: center;
   font-size: var( --h1-font-size );
   text-shadow: 3px 3px $blue;
@@ -143,6 +138,10 @@ p {
   align-items: center;
   margin-bottom: 25px;
 
+  @include mq( desktop ) {
+    margin-bottom: 35px;
+  }
+
   p {
     margin: 0 5px 0 0;
     font-size: var( --current-status-font-size );
@@ -188,12 +187,12 @@ p {
 }
 
 .cell {
-  background-color: $white;
   cursor: pointer;
   position: relative;
+  background-color: $white;
   width: var( --cell-size );
   height: var( --cell-size );
-  opacity: 0.4;
+  opacity: 0.7;
   transition: opacity 0.2s ease-in-out;
 
   &:hover {
@@ -202,8 +201,8 @@ p {
 
   &.dragon,
   &.unicorn {
-    position: relative;
     opacity: 1;
+    position: relative;
     cursor: not-allowed;
 
     &::before {
@@ -240,7 +239,7 @@ p {
 }
 
 .winning-message {
-  margin: -20px 0 20px;
+  margin: -50px 0 20px;
 
   img {
     width: 100px;
