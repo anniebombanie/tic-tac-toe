@@ -287,3 +287,38 @@ p {
 }
 
 // Background Img: https://www.pixelstalk.net/fantasy-backgrounds-free-download/
+
+
+
+
+// Define your CSS variables at the top
+:root {
+  --h1-font-size: 32px;
+  --h1-span-font-size: 24px;
+}
+
+// Put your media queries under your :root
+@media ( min-width: 600px ) {
+  :root {
+    --h1-font-size: 48px;
+    --h1-span-font-size: 36px;
+  }
+}
+
+@media ( min-width: 1024px ) {
+  :root {
+    --h1-font-size: 72px;
+    --h1-span-font-size: 54px;
+  }
+}
+
+// Reference the CSS variables in your elements/classes
+h1 {
+  font-size: var( --h1-font-size );
+
+  span {
+    font-size: var( --h1-span-font-size );
+  }
+}
+
+
